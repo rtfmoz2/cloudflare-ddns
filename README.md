@@ -1,5 +1,5 @@
 # cloudflare-ddns
-Direct Dynamic DNS for Cloudflare from Synology
+Direct DDNS from Synology to Cloudflare.
 
 ### Purpose
 This script is designed to run under the task scheduler that comes with Synology NAS DDNS. It uses API calls to update a DNS record directly on Cloudflare. It has been tested on DS918 running DSM 7.2.
