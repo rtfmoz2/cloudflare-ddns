@@ -1,62 +1,42 @@
 # cloudflare-ddns
 Direct Dynamic DNS for Cloudflare from Synology
 
-## Purpose
-This script is designed to run under the task scheduler that comes with Synology NAS DDNS. 
+### Purpose
+This script is designed to run under the task scheduler that comes with Synology NAS DDNS. It uses API calls to update a DNS record directly on Cloudflare. It has been tested on DS918 running DSM 7.2.
 
-## Features
-- No external scripts
-- No third party sites or script required
-- No dependancies
+### Features
+* Configured via management
+* No external scripts
+* No third party sites
+* No command line changes
+* No other dependancies
 
-It can entirely be configured through the management interface of a Synology NAS
+### Sources
+Cloudflare provide instructions on how to implement DDNS directly with API calls [here](https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/update/). This is script implements that interface.
 
-Cloudflare provide instructions on how to implement DDNS directly with them through API calls [here](https://developers.cloudflare.com/api/resources/dns/subresources/records/methods/update/). This is script implements that interface.
+### Contributing
+Fork the respository and raise an issue. Then commit your changes and refer to the PR in the issue.
 
-## Requirements
-- Currently active DNS domain hosted on Cloudflare
-- Zone API Key (instructions below)
-- Zone ID (instructions below)
-- DDNS record (instructions below)
+### Requirements
+* Currently active DNS domain hosted on Cloudflare
+* Zone API Key (instructions below)
+* Zone ID (instructions below)
+* DDNS record (instructions below)
 
-## Steps
+### Details
+This updates a Cloudflare DNS record with the current public IP address if it has changed. It does this by storing the last IP update in /tmp/nasip.txt and checking it each time it runs.
 
-Login to Cloudflare
-Select your DNS Zone to see the overview page
-Scroll to the bottom of the page and copy the Zone ID. This will be represented as <ZONEID>.
-Select Get your API token
-Select Create Token
-Select Use Template for Edit zone DNS
-Under Zone Resources select your DNS domain on the right if not already shown.
-Select Continue to summary
-Select Create Token
+It exits with an error status on any API/Task error OR the IP address has changed. This should trigger an email to the admin with the details of the error OR notifying them the IP address has changed. No IP changes means their are no notifications.
 
-# Zone API Key
+### Pre-Installation
+Read the [pre-installation steps](docs/pre-install.md) to prepare for task installation. These steps are mandatory
 
-Create an API Key if you dont have one already for your DNS zone.
+### Installation
+Read the [installation guide](docs/install.md) to deploy the DDNS on your Sydnology NAS.
 
+### Post Installation
+Please follow the [testing steps](docs/testing.md) after the install to ensure it is working as expected.
 
-Click Copy next to the white box with the token in it. This is the only time it will be displayed so make sure you copy it somewhere and save it. This will be represented as <APIKEY>.
-
-Create a DNS record to be updated when your IP address changes (skip if you already have a A record for this)
-
-Login to Cloudflare
-Select your DNS Zone to see the overview page
-On the right Select DNS Records
-Select Add Record
-Type should be set to A
-Name is the hostname youto use for this. Mine was nas but it can be whatever you like. No spaces allowed only a dash if you need one. This will be reprented as <HOSTNAME>.
-IP should be set to 1.1.1.1
-Proxy should be off and it should say DNS only. This is important.
-Leave TTL at Auto
-
-Create a script on the NAS to run on connection change
-
-#!/bin/bash
-set -e
-
-export ZONE_ID="ed368670a6f4a62c694e30ae63bc766c"
-export CLOUDFLARE_API_KEY="iNcGJyMnP2o0MqkvXYNbrctcIIGA99qMXed6ZuYn"
-export DNS_HOST_NAME="nastest"
-export DNS_DOMAIN_NAME="f5traffic.com"
+### Troubleshooting
+If you cannot resolve the problem raise an issue in Github or in the discussion thread on Synology website.
 
