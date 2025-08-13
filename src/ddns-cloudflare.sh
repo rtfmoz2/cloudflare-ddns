@@ -25,7 +25,7 @@ fi
 # if the file does not exist, assume the last IP was 1.1.1.1
 IP_FILE="/tmp/nasip.txt" # current address
 LAST_IP=""
-if [ -z "$IP_FILE" ]; then
+if [ -r "$IP_FILE" ]; then
   LAST_IP=$(cat "$IP_FILE")
 else
   LAST_IP="1.1.1.1"
@@ -60,7 +60,7 @@ if [ "$CURRENT_IP" != "$LAST_IP" ]; then
           "name": "'"$DNS_HOST_NAME"'",
           "ttl": 3600,
           "type": "A",
-          "comment": "'"Updated by $HOSTNAME on `date`"'",
+          "comment": "'"Updated by $HOSTNAME on $(date)"'",
           "content": "'"$CURRENT_IP"'",
           "proxied": false
         }'
