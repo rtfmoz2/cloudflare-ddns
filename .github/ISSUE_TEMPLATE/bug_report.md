@@ -8,11 +8,12 @@ assignees: rtfmoz2
 ---
 
 > [!WARNING]
-> _please do not post any private information in a bug report. No API keys or passwords_
+> _please do not post any private information in a bug report. No API keys, usernames or passwords_
 
 # Bug Report
 
-## Issue Details
+<details>
+<summary>Issue Details</summary>
 
 **Describe the bug**  
 What is not happening as expected
@@ -27,13 +28,17 @@ _Suggest a screenshot of this window_
 
 **Additional context**  
 Add any other context about the problem here.
+</details>
 
-## Diagnostic Information
+<details>
+<summary>Version information</summary>
 
-Release Version:  
-Synology DSM version <sup>**3**</sup>
+Release Version:   
+Synology DSM version <sup>**3**</sup>:
 
-#### Cloudflare DNS record
+</details>
+<details>
+<summary>Cloudflare DNS record</summary>
 
 Type:  
 Name:  
@@ -41,12 +46,16 @@ Content:
 Proxy Status:  
 TTL:  
 
-#### Synology Task Configuration
+</details>
+<details>
+<summary>Synology Task Configuration</summary>
 
 Edit the configuration for the DDNS task you created <sup>**4**</sup>
 
 > [!NOTE]
-> Select a box using [x] to mark it as ticked. See preview before submitting.
+> Selection boxes function only after you submit the request
+> (replaced with [x] however you can simply tick them after posting). 
+> Fill in the other information and leave them for after bug submission
 
 ##### General
 
@@ -78,10 +87,12 @@ Start Time: XX:XX
   - [ ] Every X hours
 
 Last Run Time: XX:XX
-
-## References
+</details>
+<details>
+<summary>References</summary>
 
 1. Control Panel -> Task Scheduler -> Select Task -> Action -> View Result  
 2. Control Panel -> Task Scheduler -> Select Task -> Run  
 3.  Control Panel -> Info Center under General Section  
 4. Control Panel -> Task Scheduler -> Select Task -> Edit
+</details>
