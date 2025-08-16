@@ -47,15 +47,14 @@ Proxy Status:
 TTL:  
 
 </details>
+
+> [!TIP]
+> Selection boxes function only after you submit the request (selected [x]). Fill in other information and you can tick the relevant after submission.
+
 <details>
 <summary>Synology Task Configuration</summary>
 
 Edit the configuration for the DDNS task you created <sup>**4**</sup>
-
-> [!NOTE]
-> Selection boxes function only after you submit the request
-> (replaced with [x] however you can simply tick them after posting). 
-> Fill in the other information and leave them for after bug submission
 
 ##### General
 
