@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Provide the information needed to troubleshoot your issue.
+about: Open the preview pane to read the bug template
 title: "[BUG]"
 labels: new
 assignees: rtfmoz2
@@ -46,7 +46,7 @@ TTL:
 Edit the configuration for the DDNS task you created <sup>**4**</sup>
 
 > [!NOTE]
-> Replace all items in red and tick the relevant boxes.
+> Select a box using [x] to mark it as ticked. See preview before submitting.
 
 ##### General
 
