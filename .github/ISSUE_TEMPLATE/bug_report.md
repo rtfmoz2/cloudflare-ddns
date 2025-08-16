@@ -7,6 +7,9 @@ assignees: rtfmoz2
 
 ---
 
+> [!IMPORTANT]
+> Use the Preview tab above to read this template before proceeding!
+
 > [!WARNING]
 > _please do not post any private information in a bug report. No API keys, usernames or passwords_
 
